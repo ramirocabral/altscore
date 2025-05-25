@@ -1,2 +1,3 @@
 # altscore
-altscore challenge
+
+[https://makers-challenge.altscore.ai/docs/](https://makers-challenge.altscore.ai/docs#/)
