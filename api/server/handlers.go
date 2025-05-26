@@ -7,14 +7,13 @@ import (
 
 func (a *app) GetStatus(w http.ResponseWriter, r *http.Request){
     status := map[string]string{
-        "damaged_sytem" : "life_support",
+        "damaged_system" : "life_support",
     }
     writeJSON(w, http.StatusOK, status)
 }
 
 func (a *app) Teapot(w http.ResponseWriter, r *http.Request) {
     w.WriteHeader(http.StatusTeapot)
-    w.Write([]byte("I'm a teapot!"))
 }
 
 func (a *app) GetIndex(w http.ResponseWriter, r *http.Request) {
