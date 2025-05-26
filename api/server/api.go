@@ -28,7 +28,6 @@ func (a *app) Mount() http.Handler{
     mux.HandleFunc("GET /status", a.GetStatus)
     mux.HandleFunc("POST /teapot", a.Teapot)
     mux.HandleFunc("GET /repair-bay", a.GetIndex)
-    // /phase-change-diagram?pressure=10
     mux.HandleFunc("GET /phase-change-diagram", a.GetSpecificVolumes)
 
     v1 := http.NewServeMux()

@@ -3,7 +3,6 @@ package server
 import (
     "net/http"
     "strconv"
-    "fmt"
 )
 
 func (a *app) GetStatus(w http.ResponseWriter, r *http.Request){
@@ -22,7 +21,7 @@ func (a *app) GetIndex(w http.ResponseWriter, r *http.Request) {
     http.ServeFile(w, r, "index.html")
 }
 
-//p1: {x1 : 0.0015, y1: 0.05}
+//p1: {x1 : 0.00105, y1: 0.05}
 //p2: {x2 : 0.0035, y2: 10}
 //p3: {x3 : 30, y3: 0.05}
 
@@ -39,7 +38,7 @@ type Point struct {
     Y float64 `json:"y"`
 }
 
-var p1 = Point{X: 0.0015, Y: 0.05}
+var p1 = Point{X: 0.00105, Y: 0.05}
 var p2 = Point{X: 0.0035, Y: 10.0}
 var p3 = Point{X: 30.0, Y: 0.05}
 
@@ -48,8 +47,6 @@ var m2 = (p3.Y - p2.Y) / (p3.X - p2.X)
 
 func (a *app) GetSpecificVolumes(w http.ResponseWriter, r *http.Request) {
     pathPressure  := r.URL.Query().Get("pressure")
-
-    fmt.Println(pathPressure)
 
     //convert to float
     pressure, err := strconv.ParseFloat(pathPressure, 64)
