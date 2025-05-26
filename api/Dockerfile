@@ -1,8 +1,7 @@
-# backend build
 FROM golang:1.24 AS backend-builder
 WORKDIR /app
 
-COPY go.mod go.sum ./
+COPY go.mod ./
 RUN go mod download
 
 COPY . . 
@@ -17,8 +16,8 @@ RUN apt-get update && \
 
 COPY --from=backend-builder /api /api
 
-COPY --from=frontend-builder /client/dist /dist
+COPY index.html ./
 
-EXPOSE 8080 
+EXPOSE 8000 
 
 CMD ["/api"]
